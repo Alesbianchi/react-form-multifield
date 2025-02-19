@@ -60,11 +60,20 @@ const PostsForm = () => {
         }));
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        setPostsState((currentPosts) => [...currentPosts, { id: currentPosts[currentPosts.length - 1].id + 1, ...formData }])
+
+        //resetto il form dopo l'invio
+        setFormData(initialFormData);
+    }
+
+
     return (
         <>
             <h1>form dei posts</h1>
 
-            <form id='formpost' action="#" >
+            <form id='formpost' action="#" onSubmit={handleSubmit} >
                 <input
                     type="text"
                     name="titolo"

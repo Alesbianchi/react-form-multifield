@@ -12,8 +12,8 @@ function App() {
 
   return (
     <>
-      <UserInput />
-      <TitleLists />
+      {/* <UserInput />
+      <TitleLists /> */}
       <PostsForm />
     </>
   )

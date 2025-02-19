@@ -43,8 +43,24 @@ const posts = [
 
 const PostsForm = () => {
 
+    const [postsState, setPostsState] = useState(posts);
+
     return (
-        <h2>prova</h2>
+        <>
+            <h1>form dei posts</h1>
+            {
+                postsState.map((post) => (
+                    <div key={post.id}>
+                        <h2>{post.titolo}</h2>
+                        <h3>{post.autore}</h3>
+                        <p>{post.contenuto}</p>
+                        <div>{post.categoria}</div>
+
+                    </div>
+                ))
+
+            }
+        </>
 
     )
 }

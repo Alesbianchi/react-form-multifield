@@ -52,7 +52,12 @@ const PostsForm = () => {
     const [formData, setFormData] = useState(initialFormData);
 
     function handleFormData(e) {
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
+        setFormData((currentFormData) => ({
+            ...currentFormData, [e.target.name]: value,
+
+        }));
     }
 
     return (
@@ -62,32 +67,36 @@ const PostsForm = () => {
             <form id='formpost' action="#" >
                 <input
                     type="text"
-                    titolo="titolo"
+                    name="titolo"
                     onChange={handleFormData}
+                    value={formData.titolo}
                     placeholder='Nome post'
                 />
 
                 <input
                     type="text"
-                    autore="autore"
+                    name="autore"
                     onChange={handleFormData}
+                    value={formData.autore}
                     placeholder='autore post'
                 />
 
-                <input
+                <textarea
                     type="text"
-                    contenuto="contenuto"
+                    name="contenuto"
                     onChange={handleFormData}
+                    value={formData.contenuto}
                     placeholder='contenuto post'
-                />
+                ></textarea>
 
                 <input
                     type="text"
-                    categoria="categoria"
+                    name="categoria"
                     onChange={handleFormData}
+                    value={formData.categoria}
                     placeholder='categoria post'
                 />
-
+                <button>Aggiungi post</button>
             </form>
             {
                 postsState.map((post) => (

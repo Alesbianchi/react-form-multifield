@@ -60,6 +60,7 @@ button:focus-visible {
 #formpost input,
 #formpost textarea {
   display: block;
+  margin: 5px;
 }
 
 @media (prefers-color-scheme: light) {

@@ -38,16 +38,57 @@ const posts = [
     }
 ];
 
-
+const initialFormData = {
+    titolo: "",
+    autore: "",
+    contenuto: "",
+    categoria: "",
+};
 
 
 const PostsForm = () => {
 
     const [postsState, setPostsState] = useState(posts);
+    const [formData, setFormData] = useState(initialFormData);
+
+    function handleFormData(e) {
+
+    }
 
     return (
         <>
             <h1>form dei posts</h1>
+
+            <form id='formpost' action="#" >
+                <input
+                    type="text"
+                    titolo="titolo"
+                    onChange={handleFormData}
+                    placeholder='Nome post'
+                />
+
+                <input
+                    type="text"
+                    autore="autore"
+                    onChange={handleFormData}
+                    placeholder='autore post'
+                />
+
+                <input
+                    type="text"
+                    contenuto="contenuto"
+                    onChange={handleFormData}
+                    placeholder='contenuto post'
+                />
+
+                <input
+                    type="text"
+                    categoria="categoria"
+                    onChange={handleFormData}
+                    placeholder='categoria post'
+                />
+
+            </form>
             {
                 postsState.map((post) => (
                     <div key={post.id}>
